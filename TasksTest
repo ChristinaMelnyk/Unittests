@@ -1,0 +1,178 @@
+import unittest
+import Tasks
+
+class FizzBuzzTest(unittest.TestCase):
+    def test_fizzbuzz(self):
+        self.assertEqual(Tasks.fizz_buzz(15), "FizzBuzz")
+        self.assertEqual(Tasks.fizz_buzz(30), "FizzBuzz")
+        self.assertEqual(Tasks.fizz_buzz(45), "FizzBuzz")
+    def test_fizz(self):
+        self.assertEqual(Tasks.fizz_buzz(3), "Fizz")
+        self.assertEqual(Tasks.fizz_buzz(6), "Fizz")
+        self.assertEqual(Tasks.fizz_buzz(9), "Fizz")
+    def test_buzz(self):
+        self.assertEqual(Tasks.fizz_buzz(10), "Buzz")
+        self.assertEqual(Tasks.fizz_buzz(20), "Buzz")
+        self.assertEqual(Tasks.fizz_buzz(25), "Buzz")
+    def test_num(self):
+        self.assertEqual(Tasks.fizz_buzz(4), "4")
+        self.assertEqual(Tasks.fizz_buzz(7), "7")
+        self.assertEqual(Tasks.fizz_buzz(11), "11")    
+
+class Profit_Test(unittest.TestCase):
+    def test_profit_positive(self):
+        self.assertEqual(Tasks.profit({"cost_price": 9.21, "sell_price": 11.37, "inventory": 340}), 734)
+        self.assertEqual(Tasks.profit({"cost_price": 32.67, "sell_price": 45.00, "inventory": 1200}), 14796)
+        self.assertEqual(Tasks.profit({"cost_price": 225.89, "sell_price": 550.00, "inventory": 100}), 32411)
+        self.assertEqual(Tasks.profit({"cost_price": 2.77, "sell_price": 7.95, "inventory": 8500}), 44030)
+    def test_profit_negative(self):
+        self.assertNotEqual(Tasks.profit({"cost_price": 9.21, "sell_price": 11.37, "inventory": 340}), 1000)
+        self.assertNotEqual(Tasks.profit({"cost_price": 32.67, "sell_price": 45.00, "inventory": 1200}), 14000)
+        self.assertNotEqual(Tasks.profit({"cost_price": 225.89, "sell_price": 550.00, "inventory": 100}), 3)
+        self.assertNotEqual(Tasks.profit({"cost_price": 2.77, "sell_price": 7.95, "inventory": 8500}), 900)
+
+class Solutions_Test(unittest.TestCase):
+    def test_solution(self):
+        self.assertEqual(Tasks.solutions(1, 0, -1),2)
+        self.assertEqual(Tasks.solutions(1, 0, 0), 1)
+        self.assertEqual(Tasks.solutions(1, 0, 1), 0)
+        self.assertEqual(Tasks.solutions(200, 420, 800), 0)
+
+class Square_Area_Test(unittest.TestCase):
+    def test_square(self):
+        self.assertEqual(Tasks.square_area(5), 50)
+        self.assertEqual(Tasks.square_area(17), 578)
+
+class ListOfMultiples(unittest.TestCase):
+    def test_multiples(self):
+        self.assertEqual(Tasks.list_of_multiples(7, 5), [7, 14, 21, 28, 35])
+        self.assertEqual(Tasks.list_of_multiples(12, 10), [12, 24, 36, 48, 60, 72, 84, 96, 108, 120])
+    def test_equal_or_graterthan(self):
+        self.assertGreaterEqual(Tasks.list_of_multiples(17, 6), [17, 34, 51, 68, 85, 102])
+
+
+class format_date_test(unittest.TestCase):
+    def test_date(self):
+        self.assertEqual(Tasks.format_date("11/12/2019"), "20191211")
+    def test_date_string(self):
+        self.assertMultiLineEqual(Tasks.format_date("12/31/2019"), "20193112")
+
+class linesTest(unittest.TestCase):
+    def test_LinesAreParallel_True(self):
+        self.assertTrue(Tasks.lines_are_parallel([1, 2, 3], [1, 2, 4]), True)
+    def test_LinesAreParallelFalse(self):
+        self.assertFalse(Tasks.lines_are_parallel([2, 4, 1], [4, 2, 1]), False )
+
+class VolShellTest(unittest.TestCase):
+    def test_vol_shell(self):
+        self. assertEqual(Tasks.vol_shell(3, 3), 0)
+
+class GreetingTest(unittest.TestCase):
+    def test_greeting(self):
+        self.assertIn(Tasks.greeting("Randy"), "Hi! I'm Randy, and I'm from Germany.")
+        self.assertIn(Tasks.greeting("Sam"), "Hi! I'm Sam, and I'm from Argentina.")
+        self.assertIn(Tasks.greeting("Monti"), "Hi! I'm a guest.")
+        self.assertIn(Tasks.greeting("Trudy"), "Hi! I'm a guest.")
+        self.assertIn(Tasks.greeting("Wendy"), "Hi! I'm Wendy, and I'm from Japan.")
+
+class StupidAdditionTest(unittest.TestCase):
+    def test_stupid_addition(self):
+        self.assertEqual(Tasks.stupid_addition(1, 2), "12")
+        self.assertEqual(Tasks.stupid_addition("1", "2"), 3)
+        self.assertEqual(Tasks.stupid_addition("1", 2), "None")
+
+class RepdigitTest(unittest.TestCase):
+    def test_is_repdigit(self):
+        self.assertTrue(Tasks.is_repdigit(66), True)
+        self.assertTrue(Tasks.is_repdigit(0), True)
+        self.assertFalse(Tasks.is_repdigit(-11), False)
+
+class ConcatTest(unittest.TestCase):
+    def test_concat(self):
+        self.assertEqual(Tasks.concat([1, 2, 3], [4, 5], [6, 7]), [1, 2, 3, 4, 5, 6, 7])
+        self.assertEqual(Tasks.concat([1], [2], [3], [4], [5], [6], [7]), [1, 2, 3, 4, 5, 6, 7]) 
+        self.assertEqual(Tasks.concat([1, 2], [3, 4]), [1, 2, 3, 4])
+
+class ReplaceListTest(unittest.TestCase):
+    def test_replace_list(self):
+        self.assertListEqual(Tasks.replace([7, 3.14, 'cat']), [0, 0.0, ''])
+        self.assertListEqual(Tasks.replace([[1, 2, 3], (1,2,3), {1,2,3}]), [[], (), set()])
+        self.assertListEqual(Tasks.replace([[7, 3.14, 'cat']]), [[]])
+        self.assertListEqual(Tasks.replace([None]),[None])
+
+class SumFractionsTest(unittest.TestCase):
+    def test_sum_fractions(self):
+        self.assertEqual(Tasks.sum_fractions([[18, 13], [4, 5]]), 2)
+        self.assertEqual(Tasks.sum_fractions([[36, 4], [22, 60]]), 9)
+        self.assertEqual(Tasks.sum_fractions([[11, 2], [3, 4], [5, 4], [21, 11], [12, 6]]), 11)
+
+class GetIndices(unittest.TestCase):
+    def test_get_indices(self):
+        self.assertEqual(Tasks.get_indices(["a", "a", "b", "a", "b", "a"], "a"),[0, 1, 3, 5])
+        self.assertEqual(Tasks.get_indices([1, 5, 5, 2, 7], 7), [4])
+        self.assertEqual(Tasks.get_indices([1, 5, 5, 2, 7], 5), [1, 2])
+        self.assertEqual(Tasks.get_indices([1, 5, 5, 2, 7], 8), [])
+
+class CountOverlappingTest(unittest.TestCase):
+    def test_count_overlapping(self):
+        self.assertEqual(Tasks.count_overlapping([[1, 2], [2, 3], [3, 4]], 5), 0)
+        self.assertEqual(Tasks.count_overlapping([[1, 2], [5, 6], [5, 7]], 5), 2)
+        self.assertEqual(Tasks.count_overlapping([[1, 2], [5, 8], [6, 9]], 7), 2)
+
+class ProgressDayTest(unittest.TestCase):
+    def test_progress_day(self):
+        self.assertEqual(Tasks.progress_days([3, 4, 1, 2]), 2)
+        self.assertEqual(Tasks.progress_days([10, 11, 12, 9, 10]), 3)
+        self.assertEqual(Tasks.progress_days([9, 9]), 0)
+
+class SquarePatchTest(unittest.TestCase):
+    def test_square_patch(self):
+        self.assertEqual(Tasks.square_patch(3), [[3, 3, 3], [3, 3, 3], [3, 3, 3]])
+        self.assertEqual(Tasks.square_patch(5), [[5, 5, 5, 5, 5], [5, 5, 5, 5, 5], [5, 5, 5, 5, 5], [5, 5, 5, 5, 5], [5, 5, 5, 5, 5]])
+        self.assertEqual(Tasks.square_patch(0), [])
+
+class OddishOrEvenish(unittest.TestCase):
+    def test_oddish_or_evenish(self):
+        self.assertEqual(Tasks.oddish_or_evenish(43), "Oddish")
+        self.assertEqual(Tasks.oddish_or_evenish(373), "Oddish")
+        self.assertEqual(Tasks.oddish_or_evenish(4433), "Evenish")
+
+class DiceGameTest(unittest.TestCase):
+    def test_dice_game(self):
+        self.assertEqual(Tasks.dice_game([(1, 2), (3, 4), (5, 6)]), 21)
+        self.assertEqual(Tasks.dice_game([(1, 1), (5, 6), (6, 4)]), 0)
+        self.assertEqual(Tasks.dice_game([(4, 5), (4, 5), (4, 5)]), 27)
+
+class SastryNumbersTest(unittest.TestCase):
+    def test_is_sastry(self):
+        self.assertTrue(Tasks.is_sastry(183), True)
+        self.assertFalse(Tasks.is_sastry(184), False)
+        self.assertTrue(Tasks.is_sastry(106755), True)
+
+class NumOfSublists(unittest.TestCase):
+    def test_num_of_sublists(self):
+        self.assertEqual(Tasks.num_of_sublists([[1, 2, 3]]), 1)
+        self.assertEqual(Tasks.num_of_sublists([[1, 2, 3], [1, 2, 3], [1, 2, 3]]), 3)
+        self.assertEqual(Tasks.num_of_sublists([[1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3]]), 4)
+
+class LastDigitTest(unittest.TestCase):
+    def test_last_digit(self):
+        self.assertTrue(Tasks.last_dig(25, 21, 125), True)
+        self.assertFalse(Tasks.last_dig(12, 215, 2142), False)
+        self.assertTrue(Tasks.last_dig(55, 226, 5190), True)
+
+class CountUppercase(unittest.TestCase):
+    def test_count_uppercase(self):
+        self.assertEqual(Tasks.count_uppercase(['SOLO', 'hello', 'Tea', 'wHat']), 6)
+        self.assertEqual(Tasks.count_uppercase(['little', 'lower', 'down']), 0)
+        self.assertEqual(Tasks.count_uppercase(['EDAbit', 'Educate', 'Coding']), 5)
+
+class PandigitNumbersTest(unittest.TestCase):
+    def test_is_pandigit(self):
+        self.assertTrue(Tasks.is_pandigit(98140723568910), True)
+        self.assertFalse(Tasks.is_pandigit(90864523148909), False)
+        self.assertFalse(Tasks.is_pandigit(112233445566778899), False)
+ 
+
+if __name__ == '__main__':
+    unittest.main()
